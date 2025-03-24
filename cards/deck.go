@@ -2,11 +2,10 @@ package main
 
 import "fmt"
 
-// Create a new type of 'deck'
-// which is a slice of strings
 type deck []string
 
 func newDeck() deck {
+	// Create and return a list of playing cards
 	cards := deck{}
 
 	cardSuits := []string{"Spades", "Hearts", "Diamonds", "Clubs"}
@@ -28,4 +27,7 @@ func (d deck) print() {
 	}
 }
 
-// New deck create and return a list of playing cards
+func deal(d deck, handsize int) (deck, deck) {
+	// Deals out cards from the deck
+	return d[:handsize], d[handsize:]
+}
