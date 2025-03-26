@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func main() {
@@ -21,8 +22,12 @@ func main() {
 	}
 
 	// Inf loop in go is just for {}
-	for {
-		go checkLink(<-c, c)
+	for l := range c {
+		go func() {
+			time.Sleep(5 * time.Second)
+			checkLink(l, c)
+		}()
+
 	}
 }
 
