@@ -23,10 +23,10 @@ func main() {
 
 	// Inf loop in go is just for {}
 	for l := range c {
-		go func() {
+		go func(link string) {
 			time.Sleep(5 * time.Second)
-			checkLink(l, c)
-		}()
+			checkLink(link, c)
+		}(l)
 
 	}
 }
