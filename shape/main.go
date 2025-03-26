@@ -33,6 +33,7 @@ func (s square) getArea() float64 {
 }
 
 func (t triangle) getArea() float64 {
+	// could return without saving the data as variables
 	base := t.base
 	height := t.height
 	area := base * height * 0.5
